@@ -8,7 +8,7 @@
   "author": {
     "name": "Happy Technologies"
   },
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "engines": {
     "node": ">=0.8.0"
