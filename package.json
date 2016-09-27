@@ -1,0 +1,33 @@
+{
+  "name": "happy-deploy",
+  "description": "Npm scripts collection to manage deployments",
+  "keywords": [
+    "npm",
+    "deploy"
+  ],
+  "author": {
+    "name": "Happy Technologies"
+  },
+  "version": "0.0.2",
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "main": "deploy",
+  "preferGlobal": false,
+  "bugs": {
+    "url": "https://github.com/Microclimat/happy-deploy/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Microclimat/happy-deploy.git"
+  },
+  "dependencies": {
+    "tar.gz": ">=0.0.1",
+    "prompt": ">=0.0.1",
+    "ftp-client": ">=0.0.1",
+    "replace": ">=0.0.1",
+    "fs-extra": ">=0.0.1"
+  },
+  "readmeFilename": "README.md"
+}
