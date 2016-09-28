@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "tar.gz": ">=0.0.1",
-    "prompt": ">=0.0.1",
+    "prompt-sync": ">=0.0.1",
     "ftp-client": ">=0.0.1",
     "replace": ">=0.0.1",
     "fs-extra": ">=0.0.1"

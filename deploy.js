@@ -3,31 +3,34 @@
  */
 console.log('Happy Deploy System');
 var exitTask = {
-    run:function(){
+    run: function () {
         console.log("END");
         process.exit(0);
     }
 }
 
-var currentTaskIndex=0;
+var currentTaskIndex = 0;
 var taskList = [];
 
-var executeNextStep = function(){
+var executeNextStep = function () {
     currentTaskIndex++;
     taskList[currentTaskIndex].run(executeNextStep);
 };
 
-var run = function(){
+var run = function () {
     addTask(exitTask);
     taskList[0].run(executeNextStep);
 }
 
-var addTask = function(task){
+var addTask = function (task) {
     taskList.push(task);
 }
 
+
 module.exports = {
-    run:run,
-    addTask:addTask
+    run: run,
+    getCache: require('./cache').getCache,
+    getConfig: require('./config').getConfig,
+    CompileHaxeTask: require('./compile-haxe').CompileHaxeTask,
+    addTask: addTask
 }
-module.exports.CompileHaxeTask = require('./compile-haxe').CompileHaxeTask;
