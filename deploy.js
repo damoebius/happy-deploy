@@ -29,6 +29,7 @@ var addTask = function (task) {
 
 module.exports = {
     run: run,
+    git:require('./git'),
     getCache: require('./cache').getCache,
     getConfig: require('./config').getConfig,
     CompileHaxeTask: require('./compile-haxe').CompileHaxeTask,
