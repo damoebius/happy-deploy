@@ -20,5 +20,6 @@ var getCurrentTag = function(){
 };
 
 module.exports = {
-    getBranchName:getBranchName
+    getBranchName:getBranchName,
+    getCurrentTag:getCurrentTag
 };
