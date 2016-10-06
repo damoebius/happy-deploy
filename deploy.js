@@ -33,5 +33,6 @@ module.exports = {
     getCache: require('./cache').getCache,
     getConfig: require('./config').getConfig,
     CompileHaxeTask: require('./compile-haxe').CompileHaxeTask,
+    CompassTask: require('./compass').CompassTask,
     addTask: addTask
 }
