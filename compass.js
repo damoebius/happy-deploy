@@ -1,12 +1,21 @@
-/**
- * Created by david on 28/09/16.
- */
+
 var compass = require('compass');
 
+/**
+ * Compile Compass
+ * @class CompassTask
+ * @param dir the target directory to compile
+ * @constructor
+ */
 var CompassTask = function (dir) {
     this.dir = dir;
 };
 
+/**
+ * Process compilation
+ * @method run
+ * @param executeNextStep the callback
+ */
 CompassTask.prototype.run = function(executeNextStep){
     console.log("compile compass");
     compass.compile({ cwd: this.dir }, function(err, stdout, stderr) {

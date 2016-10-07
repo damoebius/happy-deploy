@@ -1,5 +1,5 @@
 /**
- * Created by david on 27/09/16.
+ * The main Deploy Module
  */
 console.log('Happy Deploy System');
 var exitTask = {
@@ -17,11 +17,20 @@ var executeNextStep = function () {
     taskList[currentTaskIndex].run(executeNextStep);
 };
 
+/**
+ * Run the task queue
+ * @method run
+ */
 var run = function () {
     addTask(exitTask);
     taskList[0].run(executeNextStep);
 }
 
+/**
+ * Add a task to the queue
+ * @method addTask
+ * @param task
+ */
 var addTask = function (task) {
     taskList.push(task);
 }
@@ -29,10 +38,40 @@ var addTask = function (task) {
 
 module.exports = {
     run: run,
+    /**
+     * The git Module
+     * @property git
+     */
     git:require('./git'),
+    /**
+     * Get cached data
+     * @method getCache
+     */
     getCache: require('./cache').getCache,
+    /**
+     * Get configured data
+     * @method getConfig
+     */
     getConfig: require('./config').getConfig,
+    /**
+     * The Compile Haxe Task Class
+     * @class CompileHaxeTask
+     */
     CompileHaxeTask: require('./compile-haxe').CompileHaxeTask,
+    /**
+     * The Compile Compass Task Class
+     * @class CompassTask
+     */
     CompassTask: require('./compass').CompassTask,
+    /**
+     * The Package Task Class
+     * @class PackageTask
+     */
+    PackageTask: require('./package').PackageTask,
+    /**
+     * The Send over SSH and Extract Task Class
+     * @class SendSSHTask
+     */
+    SendSSHTask: require('./send-ssh').SendSSHTask,
     addTask: addTask
 }

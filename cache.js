@@ -1,9 +1,12 @@
-/**
- * Created by david on 28/09/16.
- */
 var fs = require('fs');
 var prompt = require('prompt-sync')();
 
+/**
+ * The Cache Manager
+ * @class Cache
+ * @param env The target cache
+ * @constructor
+ */
 var Cache = function (env) {
     this.env = env;
     var cache = {};
@@ -19,10 +22,22 @@ var Cache = function (env) {
     this.flush();
 };
 
+/**
+ * Save a value to the cache
+ * @method setValue
+ * @param key
+ * @param value
+ */
 Cache.prototype.setValue = function (key,value) {
     this.cache[this.env][key]=value;
 };
 
+/**
+ * Return a data from the cache
+ * @method getValue
+ * @param key
+ * @returns {string} the cached data
+ */
 Cache.prototype.getValue = function (key) {
     var value = this.cache[this.env][key];
     if(value == undefined){
@@ -37,13 +52,21 @@ Cache.prototype.getValue = function (key) {
 };
 
 
-
+/**
+ * Save the cache
+ * @method flush
+ */
 Cache.prototype.flush = function () {
     console.log(JSON.stringify(this.cache));
     fs.writeFileSync(__dirname + '/.cache', JSON.stringify(this.cache), 'utf8');
 };
 
-
+/**
+ * Return an instance of Cache
+ * @method getCache
+ * @param env
+ * @returns {Cache}
+ */
 var getCache = function(env){
     return new Cache(env);
 };

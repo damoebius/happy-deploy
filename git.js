@@ -1,8 +1,10 @@
-/**
- * Created by david on 29/09/16.
- */
+
 var process = require('child_process');
 
+/**
+ * @method getBranchName
+ * @returns {string}
+ */
 var getBranchName = function(){
     var options = {
         cwd: '.',
@@ -11,6 +13,10 @@ var getBranchName = function(){
     return process.execSync('git rev-parse --abbrev-ref HEAD', options).trim();
 };
 
+/**
+ * @method getCurrentTag
+ * @returns {string}
+ */
 var getCurrentTag = function(){
     var options = {
         cwd: '.',

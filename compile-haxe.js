@@ -1,21 +1,51 @@
-/**
- * Created by david on 27/09/16.
- */
 var process = require('child_process');
 var fs = require('fs');
 var UglifyJS = require("uglify-js");
 
+/**
+ * Compile Haxe Task
+ * @class CompileHaxeTask
+ * @param main The main class to compile
+ * @param output The output file
+ * @param minify minify or not
+ * @constructor
+ */
 var CompileHaxeTask = function (main, output, minify=false) {
+    /**
+     * @property dir the home directory
+     * @type {string}
+     */
     this.dir = '.';
+    /**
+     * @property src src folder list
+     * @type {Array}
+     */
     this.src = [];
+    /**
+     * @property libs list of haxe libs
+     * @type {Array}
+     */
     this.libs = [];
     this.output = output;
     this.main = main;
     this.minify = minify;
+    /**
+     * @property options optionnals arguments
+     * @type {string}
+     */
     this.options ='';
+    /**
+     * @property hxml
+     * @type {string}
+     */
     this.hxml='';
 };
 
+/**
+ * Process compilation
+ * @method run
+ * @param executeNextStep the callback
+ */
 CompileHaxeTask.prototype.run = function (executeNextStep) {
     console.log('compile haxe : ' + this.main);
     var args = ['node node_modules/haxe/bin/haxe'];
