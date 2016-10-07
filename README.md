@@ -4,7 +4,7 @@ Npm scripts collection to manage deployments
 
 ## Installation
 ```
-npm i happy-deploy
+npm i happy-deploy --save
 ```
 ## Methods
 
