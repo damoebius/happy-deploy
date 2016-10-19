@@ -51,6 +51,20 @@ Cache.prototype.getValue = function (key) {
 
 };
 
+/**
+ * Checks if a data exists in the cache
+ * @method hasValue
+ * @param key
+ * @returns {bool} if the data exists
+ */
+Cache.prototype.hasValue = function (key) {
+    var value = this.cache[this.env][key];
+    if (value == undefined){
+        return false;
+    }
+    return true;
+};
+
 
 /**
  * Save the cache
