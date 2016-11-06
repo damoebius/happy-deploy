@@ -48,12 +48,11 @@ Start deployment
 The module execute each task in his queue.
 
 ### git
-#### git.getBranchName()
+
 **git.getBranchName()**
 
 Return the current branch name
 
-#### git.getCurrentTag()
 **git.getCurrentTag()**
 
 Return the current branch tag name or ""
@@ -64,7 +63,6 @@ var deploy = require("happy-deploy");
 var currentTag = deploy.git.getCurrentTag();
 ```
 
-#### git.getCommiterName()
 **git.getCommiterName()**
 
 Return the name for the last commiter
@@ -75,7 +73,6 @@ var deploy = require("happy-deploy");
 var username = deploy.git.getCommiterName();
 ```
 
-#### git.getCommitHashMessage()
 **git.getCommitHashMessage()**
 
 Return the hash and message of last commit.
@@ -85,7 +82,6 @@ Exemple :
 var deploy = require("happy-deploy");
 var hashMessage = deploy.git.getCommitHashMessage();
 ```
-#### git.getCommitHash()
 **git.getCommitHash()**
 
 Return the hash of last commit.
@@ -96,7 +92,6 @@ var deploy = require("happy-deploy");
 var hashMessage = deploy.git.getCommitHash();
 ```
 
-#### git.getRepoUrl()
 **git.getRepoUrl()**
 
 Return the url of the current repo.
@@ -107,7 +102,6 @@ var deploy = require("happy-deploy");
 var repoUrl = deploy.git.getRepoUrl();
 ```
 
-#### git.getRepoName()
 **git.getRepoName()**
 
 Return the name of the current repo.
