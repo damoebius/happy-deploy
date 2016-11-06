@@ -266,3 +266,34 @@ deploy.addTask(deployTask);
 
 deploy.run();
 ```
+
+
+## Slack
+
+Expose some bin to talk with slack.
+To execute, add these npm scripts to your package.json :
+
+```json
+{
+    [...]
+    "scripts": {
+        [...]
+        "say:begindeploy": "slackstartdeploy --url=$npm_package_config_slackurl --channel=$npm_package_config_slackchannel",
+        "say:enddeploy": "slackenddeploy --url=$npm_package_config_slackurl --channel=$npm_package_config_slackchannel",
+        "say:deploy": "slackdeploy --url=$npm_package_config_slackurl --channel=$npm_package_config_slackchannel",
+        "say:giphy": "slackgiphy --url=$npm_package_config_slackurl --channel=$npm_package_config_slackchannel"
+    },
+    ""config": {
+        "slackchannel" : "#mychannel",
+        "slackurl":"https://hooks.slack.com/services/<MYWEBHOOKURLAPIKEY"
+    },
+}
+
+```
+
+> Note: For the slackdeploy command, you can also pass the `--env=prod` arg. To add this after a deploy:prod, add a script like this :
+
+```json
+    "postdeploy:prod": "say:deploy -- --env=prod",
+```
+
