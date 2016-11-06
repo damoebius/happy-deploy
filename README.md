@@ -1,4 +1,4 @@
-# happy-deploy
+# happy-deploy  [![NPM version][npm-image]][npm-url] 
 
 Npm scripts collection to manage deployments
 
@@ -297,3 +297,9 @@ To execute, add these npm scripts to your package.json :
     "postdeploy:prod": "say:deploy -- --env=prod",
 ```
 
+
+
+
+
+[npm-image]: https://badge.fury.io/js/happy-deploy.svg
+[npm-url]: https://npmjs.org/package/happy-deploy
