@@ -2,7 +2,6 @@ var Slack = require('slack-node');
 var git = require('../git');
 var messages = require('./messages');
 var commandLineArgs = require('command-line-args');
-var Promise = require('es6-promise').Promise;
 
 /**
  * Writes to slack.
