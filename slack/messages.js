@@ -21,7 +21,7 @@ function getRandomMessage(array) {
  * @return     {string}   The success message.
  */
 exports.getSuccessMessage = function() {
-    return "Everything passed! " + git.getCommiterName() + " rocks ! :thumbsup:"; 
+    return "Everything passed! " + git.getCommiterName() + " rocks ! :thumbsup:";
 }
 
 /**
@@ -30,7 +30,7 @@ exports.getSuccessMessage = function() {
  * @return     {string}   The begin deploy message.
  */
 exports.getBeginDeployMessage = function() {
-    return "#" + git.getRepoName() + " : begin deploy a commit by " + git.getCommiterName() + " on the branch " + git.getBranchName(); 
+    return "#" + git.getRepoName() + " : begin deploy a commit by " + git.getCommiterName() + " on the branch " + git.getBranchName();
 }
 
 /**
@@ -39,7 +39,7 @@ exports.getBeginDeployMessage = function() {
  * @return     {string}   The end deploy message.
  */
 exports.getEndDeployMessage = function() {
-    return "#" + git.getRepoName() + " has been correctly deployed on " + git.getBranchName(); 
+    return "#" + git.getRepoName() + " has been correctly deployed on " + git.getBranchName();
 }
 
 /**
@@ -52,12 +52,23 @@ exports.getDeployMessage = function() {
         cwd: '.',
         encoding: 'utf8'
     };
-    var whoami = process.execSync('whoami', options).trim();	
-    return "#" + git.getRepoName() + " has been correctly deployed by  " + whoami; 
+    var whoami = process.execSync('whoami', options).trim();
+    return "#" + git.getRepoName() + " has been correctly deployed by  " + whoami;
 }
 
 /**
- * Gets the deploy message.
+ * Gets the giphy message.
+ *
+ * @return {string} The deploy message.
+ */
+exports.getFailDeployMessage = function() {
+    var message = getRandomMessage(messages.fail);
+    message = message.replace('@_author_@', git.getCommiterName());
+    return message;
+}
+
+/**
+ * Gets the giphy message.
  *
  * @return     {string}   The deploy message.
  */

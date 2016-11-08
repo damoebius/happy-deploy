@@ -40,7 +40,8 @@
     "slackstartdeploy": "slack/command/start-deploy.js",
     "slackenddeploy": "slack/command/end-deploy.js",
     "slackdeploy": "slack/command/deploy.js",
-    "slackgiphy": "slack/command/giphy.js"
+    "slackgiphy": "slack/command/giphy.js",
+    "slackfaildeploy": "slack/command/deployfail.js"
   },
   "readmeFilename": "README.md"
 }

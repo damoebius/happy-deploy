@@ -4,5 +4,15 @@
         "success",
         "awesome",
         "excited"
+    ],
+    "fail": [
+        "Build failed. @_author_@ :rage:",
+        "Build failed :( : shame on @_author_@ ",
+        "@_author_@ broke something in the build...",
+        "Hey @_author_@! Build failed.",
+        "Worst dev ever, @_author_@",
+        "Do not let @_author_@ code alone...",
+        "Something broke... As expected from @_author_@",
+        "My little sister code better than you, @_author_@"
     ]
 }
