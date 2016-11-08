@@ -1,4 +1,4 @@
-# happy-deploy  [![NPM version][npm-image]][npm-url] 
+# happy-deploy  [![NPM version][npm-image]][npm-url]
 
 Npm scripts collection to manage deployments
 
@@ -200,7 +200,7 @@ Create a new instance  of SendSSHTask.
  * @param file
  * @param destination
  * @param extractDestination
- 
+
  ## Full Exemple
  ```javascript
 var deploy = require("happy-deploy");
@@ -276,6 +276,7 @@ To execute, add these npm scripts to your package.json :
         "say:enddeploy": "slackenddeploy --url=$npm_package_config_slackurl --channel=$npm_package_config_slackchannel",
         "say:deploy": "slackdeploy --url=$npm_package_config_slackurl --channel=$npm_package_config_slackchannel",
         "say:giphy": "slackgiphy --url=$npm_package_config_slackurl --channel=$npm_package_config_slackchannel"
+        "say:fail": "slackfaildeploy --url=$npm_package_config_slackurl --channel=$npm_package_config_slackchannel"
     },
     ""config": {
         "slackchannel" : "#mychannel",
@@ -285,7 +286,7 @@ To execute, add these npm scripts to your package.json :
 
 ```
 
-> Note: For the slackdeploy command, you can also pass the `--env=prod` arg. To add this after a deploy:prod, add a script like this :
+> Note: For the slackdeploy or slackfaildeploy command, you can also pass the `--env=prod` arg. To add this after a deploy:prod, add a script like this :
 
 ```json
     "postdeploy:prod": "say:deploy -- --env=prod",
