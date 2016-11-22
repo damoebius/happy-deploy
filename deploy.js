@@ -49,7 +49,7 @@ module.exports = {
      * Get cached data
      * @method getCache
      */
-    getCache: require('./cache').getCache(path.dirname(module.parent.filename)),
+    getCache: require('./cache').getCache(path.resolve('.')),
     /**
      * Get configured data
      * @method getConfig
