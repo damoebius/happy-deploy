@@ -1,5 +1,6 @@
 var fs = require('fs');
 var prompt = require('prompt-sync')();
+var path = require('path');
 
 /**
  * The Cache Manager
@@ -7,11 +8,13 @@ var prompt = require('prompt-sync')();
  * @param env The target cache
  * @constructor
  */
-var Cache = function (env) {
+var Cache = function (dir, env) {
     this.env = env;
+    this.cacheFile = path.normalize(dir + "/.cache");
+
     var cache = {};
     try{
-        cache = JSON.parse(fs.readFileSync(__dirname + '/.cache', 'utf8'));
+        cache = JSON.parse(fs.readFileSync(this.cacheFile, 'utf8'));
     } catch(err){
         cache = {};
     }
@@ -72,7 +75,7 @@ Cache.prototype.hasValue = function (key) {
  */
 Cache.prototype.flush = function () {
     console.log(JSON.stringify(this.cache));
-    fs.writeFileSync(__dirname + '/.cache', JSON.stringify(this.cache), 'utf8');
+    fs.writeFileSync(this.cacheFile, JSON.stringify(this.cache), 'utf8');
 };
 
 /**
@@ -81,8 +84,10 @@ Cache.prototype.flush = function () {
  * @param env
  * @returns {Cache}
  */
-var getCache = function(env){
-    return new Cache(env);
+var getCache = function(dir) {
+    return function(env) {
+        return new Cache(dir, env);
+    };
 };
 
 module.exports = {

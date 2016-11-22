@@ -1,3 +1,5 @@
+var path = require('path');
+
 /**
  * The main Deploy Module
  */
@@ -47,7 +49,7 @@ module.exports = {
      * Get cached data
      * @method getCache
      */
-    getCache: require('./cache').getCache,
+    getCache: require('./cache').getCache(path.dirname(module.parent.filename)),
     /**
      * Get configured data
      * @method getConfig
