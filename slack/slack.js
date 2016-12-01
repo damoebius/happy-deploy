@@ -16,7 +16,7 @@ module.exports.writeToSlack = function(messageType) {
         { name: 'env', alias: 'e',  type: String },
     ];
 
-    const username =  "Npm bot";
+    const username =  "NPM bot";
     var emoji =  ":happytech:";
     const colourHappy = "#19a175";
     // get options
