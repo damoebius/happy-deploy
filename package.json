@@ -8,10 +8,10 @@
   "author": {
     "name": "Happy Technologies"
   },
-  "version": "0.0.12",
+  "version": "0.0.13",
   "license": "MIT",
   "engines": {
-    "node": ">=0.8.0"
+    "node": ">=6.0.0"
   },
   "main": "deploy",
   "preferGlobal": false,

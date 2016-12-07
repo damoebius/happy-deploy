@@ -190,7 +190,7 @@ Create a new instance  of PackageTask.
  * @param file
 
 ### SendSSHTask
-**SendSSHTask(host, port,user,password,file,destination, extractDestination)**
+**SendSSHTask(host, port,user,password,file,destination, extractDestination, sshKeyPass)**
 
 Create a new instance  of SendSSHTask.
  * @param host
@@ -200,6 +200,7 @@ Create a new instance  of SendSSHTask.
  * @param file
  * @param destination
  * @param extractDestination
+ * @param sshKeyPass // the path to id_rsa (optionnal)
 
  ## Full Exemple
  ```javascript

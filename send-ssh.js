@@ -13,9 +13,10 @@ var Client = require('ssh2').Client;
  * @param file
  * @param destination
  * @param extractDestination
+ * @param sshKeyPass
  * @constructor
  */
-var SendSSHTask = function (host, port,user,password,file,destination, extractDestination) {
+var SendSSHTask = function (host, port,user,password,file,destination, extractDestination, sshKeyPass) {
     this.host = host;
     this.port = port;
     this.user = user;
@@ -23,6 +24,21 @@ var SendSSHTask = function (host, port,user,password,file,destination, extractDe
     this.file = file;
     this.destination = destination;
     this.extractDestination = extractDestination;
+    this.sshKeyPass = sshKeyPass;
+    this.connectConfig = {
+        host: this.host,
+        port: this.port,
+        username: this.user,
+        password: this.password
+    }
+    if(sshKeyPass != undefined){
+        this.connectConfig = {
+            host: this.host,
+            port: this.port,
+            username: this.user,
+            privateKey: require('fs').readFileSync(this.sshKeyPass)
+        }
+    }
 };
 
 /**
@@ -31,7 +47,7 @@ var SendSSHTask = function (host, port,user,password,file,destination, extractDe
  * @param executeNextStep the callback
  */
 SendSSHTask.prototype.run = function(executeNextStep){
-    console.log("send over ssh and extract");
+    console.log("send over ssh and extract ");
     var conn = new Client();
     var that = this;
     conn.on('ready', function() {
@@ -83,12 +99,7 @@ SendSSHTask.prototype.run = function(executeNextStep){
                 readStream.pipe( writeStream );
             }
         );
-    }).connect({
-        host: this.host,
-        port: this.port,
-        username: this.user,
-        password: this.password
-    });
+    }).connect(that.connectConfig);
 
 };
 
