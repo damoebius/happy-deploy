@@ -262,6 +262,16 @@ deploy.addTask(deployTask);
 deploy.run();
 ```
 
+### ExecSSHTask
+**ExecSSHTask(host, port,user,password, sshKeyPass, command)**
+
+Execute a shell command via ssh
+ * @param host
+ * @param port
+ * @param user
+ * @param password
+ * @param sshKeyPass
+ * @param command
 
 ## Slack
 

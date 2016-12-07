@@ -1,5 +1,4 @@
 var path = require('path');
-
 /**
  * The main Deploy Module
  */
@@ -75,5 +74,6 @@ module.exports = {
      * @class SendSSHTask
      */
     SendSSHTask: require('./send-ssh').SendSSHTask,
+    ExecSSHTask: require('./exec-ssh').ExecSSHTask,
     addTask: addTask
 }
