@@ -10,7 +10,7 @@ var UglifyJS = require("uglify-js");
  * @param minify minify or not
  * @constructor
  */
-var CompileHaxeTask = function (main, output, minify=false) {
+var CompileHaxeTask = function (main, output, minify) {
     /**
      * @property dir the home directory
      * @type {string}
