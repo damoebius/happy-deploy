@@ -16,24 +16,31 @@ var CompileHaxeTask = function (main, output, minify) {
      * @type {string}
      */
     this.dir = '.';
+
     /**
      * @property src src folder list
      * @type {Array}
      */
     this.src = [];
+
     /**
      * @property libs list of haxe libs
      * @type {Array}
      */
     this.libs = [];
+
     this.output = output;
+
     this.main = main;
+
     this.minify = minify;
+
     /**
      * @property options optionnals arguments
      * @type {string}
      */
     this.options ='';
+
     /**
      * @property hxml
      * @type {string}
@@ -49,19 +56,23 @@ var CompileHaxeTask = function (main, output, minify) {
 CompileHaxeTask.prototype.run = function (executeNextStep) {
     console.log('compile haxe : ' + this.main);
     var args = ['node node_modules/haxe/bin/haxe'];
+
     if(this.hxml == '') {
+        var i;
         args.push('-main ' + this.main);
-        for (var i = 0; i < this.src.length; i++) {
+
+        for (i = 0; i < this.src.length; i++) {
             args.push('-cp ' + this.src[i]);
         }
-        for (var i = 0; i < this.libs.length; i++) {
+
+        for (i = 0; i < this.libs.length; i++) {
             args.push('-cp node_modules/' + this.libs[i]);
         }
     } else {
         args.push(this.hxml);
     }
 
-    if(this.options.length>0){
+    if (this.options.length > 0) {
         args.push(this.options);
     }
 
@@ -73,7 +84,6 @@ CompileHaxeTask.prototype.run = function (executeNextStep) {
         stdio: [0, 1, 2]
     };
 
-
     process.execSync(args.join(' '), options);
 
     if(this.minify){
@@ -81,6 +91,7 @@ CompileHaxeTask.prototype.run = function (executeNextStep) {
         var min = UglifyJS.minify(this.output);
         fs.writeFileSync(this.output, min.code);
     }
+
     executeNextStep();
 
 };

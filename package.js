@@ -1,6 +1,3 @@
-/**
- * Created by david on 28/09/16.
- */
 var fs = require('fs');
 var fsx = require('fs-extra');
 var targz = require('tar.gz');
@@ -25,10 +22,13 @@ var PackageTask = function (dir,file) {
  */
 PackageTask.prototype.run = function(executeNextStep){
     console.log("Packaging");
+
     targz().compress(this.dir, this.file, function(err){
         if(err) {
-            console.log('Something is wrong ', err.stack);
+            console.log('Something is wrong');
+            console.log(err.stack);
         }
+
         executeNextStep();
     });
 

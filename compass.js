@@ -1,4 +1,3 @@
-
 var compass = require('compass');
 
 /**
@@ -26,7 +25,6 @@ CompassTask.prototype.run = function(executeNextStep){
             console.warn(err)
         }
     });
-
 };
 
 module.exports.CompassTask = CompassTask;

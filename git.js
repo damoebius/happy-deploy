@@ -1,4 +1,3 @@
-
 var process = require('child_process');
 
 /**
@@ -10,6 +9,7 @@ var getBranchName = function(){
         cwd: '.',
         encoding: 'utf8'
     };
+
     return process.execSync('git rev-parse --abbrev-ref HEAD', options).trim();
 };
 
@@ -22,6 +22,7 @@ var getCurrentTag = function(){
         cwd: '.',
         encoding: 'utf8'
     };
+
     return process.execSync('git tag -l --contains HEAD', options).trim();
 };
 
@@ -35,8 +36,9 @@ var getCommiterName = function(){
         cwd: '.',
         encoding: 'utf8'
     };
-    return process.execSync('git --no-pager show -s --format="%an"', options).trim();   
-}
+
+    return process.execSync('git --no-pager show -s --format="%an"', options).trim();
+};
 
 /**
  * Gets the commit hash and message.
@@ -50,23 +52,25 @@ var getCommitHashMessage = function(){
         cwd: '.',
         encoding: 'utf8'
     };
-    return process.execSync('git log -1 --abbrev-commit --pretty=oneline', options).trim();   
-}
+
+    return process.execSync('git log -1 --abbrev-commit --pretty=oneline', options).trim();
+};
 
 /**
  * Gets the commit hash full
  * like that :
  * "50fe854cfc024f63349bb8ffe9886798b89bafd0"
  * @method getCommitHash
- * @return {string} The commit hash 
+ * @return {string} The commit hash
  */
 var getCommitHash = function(){
     var options = {
         cwd: '.',
         encoding: 'utf8'
     };
-    return process.execSync('git --no-pager show -s --format="%H"', options).trim();   
-}
+
+    return process.execSync('git --no-pager show -s --format="%H"', options).trim();
+};
 
 /**
  * Gets the repo url.
@@ -79,8 +83,9 @@ var getRepoUrl = function() {
         cwd: '.',
         encoding: 'utf8'
     };
-    return process.execSync('git config --get remote.origin.url', options).trim();   
-}
+
+    return process.execSync('git config --get remote.origin.url', options).trim();
+};
 
 /**
  * Gets the repo name.
@@ -90,7 +95,7 @@ var getRepoUrl = function() {
 var getRepoName = function() {
     var repoUrl = getRepoUrl();
     return repoUrl.substring(repoUrl.lastIndexOf('/') + 1, repoUrl.length - 4).trim();
-}
+};
 
 module.exports = {
     getBranchName:getBranchName,

@@ -1,5 +1,5 @@
 var fs = require('fs');
-var prompt = require('prompt-sync')();
+var prompt = require('synchro-prompt');
 var path = require('path');
 
 /**
@@ -32,7 +32,7 @@ var Cache = function (dir, env) {
  * @param value
  */
 Cache.prototype.setValue = function (key,value) {
-    this.cache[this.env][key]=value;
+    this.cache[this.env][key] = value;
 };
 
 /**
@@ -43,13 +43,14 @@ Cache.prototype.setValue = function (key,value) {
  */
 Cache.prototype.getValue = function (key) {
     var value = this.cache[this.env][key];
-    if(value == undefined){
+
+    if (value == undefined){
         console.log();
-        value = prompt(key + ' est introuvable, donnez lui une valeur :');
+        value = prompt(key + ' est introuvable, donnez lui une valeur : ', {color: 'green'});
         this.setValue(key,value);
         this.flush();
-
     }
+
     return value;
 
 };
@@ -61,11 +62,7 @@ Cache.prototype.getValue = function (key) {
  * @returns {bool} if the data exists
  */
 Cache.prototype.hasValue = function (key) {
-    var value = this.cache[this.env][key];
-    if (value == undefined){
-        return false;
-    }
-    return true;
+    return typeof this.cache[this.env][key] != 'undefined';
 };
 
 
@@ -81,7 +78,7 @@ Cache.prototype.flush = function () {
 /**
  * Return an instance of Cache
  * @method getCache
- * @param env
+ * @param dir
  * @returns {Cache}
  */
 var getCache = function(dir) {

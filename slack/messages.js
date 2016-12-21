@@ -10,9 +10,9 @@ const messages = require('./messages.json');
  * @param 	{array}  The array
  * @return  {string}  The random message.
  */
-function getRandomMessage(array) {
+var getRandomMessage = function (array) {
     return array[Math.floor(Math.random() * array.length)];
-}
+};
 
 
 /**
@@ -22,7 +22,7 @@ function getRandomMessage(array) {
  */
 exports.getSuccessMessage = function() {
     return "Everything passed! " + git.getCommiterName() + " rocks ! :thumbsup:";
-}
+};
 
 /**
  * Gets the begin deploy message.
@@ -31,7 +31,7 @@ exports.getSuccessMessage = function() {
  */
 exports.getBeginDeployMessage = function() {
     return "#" + git.getRepoName() + " : begin deploy a commit by " + git.getCommiterName() + " on the branch " + git.getBranchName();
-}
+};
 
 /**
  * Gets the end deploy message.
@@ -40,7 +40,7 @@ exports.getBeginDeployMessage = function() {
  */
 exports.getEndDeployMessage = function() {
     return "#" + git.getRepoName() + " has been correctly deployed on " + git.getBranchName();
-}
+};
 
 /**
  * Gets the deploy message.
@@ -53,8 +53,9 @@ exports.getDeployMessage = function() {
         encoding: 'utf8'
     };
     var whoami = process.execSync('whoami', options).trim();
+
     return "#" + git.getRepoName() + " has been correctly deployed by  " + whoami;
-}
+};
 
 /**
  * Gets the giphy message.
@@ -64,8 +65,9 @@ exports.getDeployMessage = function() {
 exports.getFailDeployMessage = function() {
     var message = getRandomMessage(messages.fail);
     message = message.replace('@_author_@', git.getCommiterName());
+
     return message;
-}
+};
 
 /**
  * Gets the giphy message.
@@ -75,14 +77,14 @@ exports.getFailDeployMessage = function() {
 exports.getGiphyMessage = function(fn) {
 	var keyword = getRandomMessage(messages.giphy);
 	var url = "";
+
 	giphy.random(keyword, function(err, res) {
  		if (err != null) {
- 			// default awesome gif
- 			url = "http://giphy.com/gifs/excited-birthday-yeah-yoJC2GnSClbPOkV0eA";
+ 			url = "http://giphy.com/gifs/excited-birthday-yeah-yoJC2GnSClbPOkV0eA"; // default awesome gif
  		}  else {
  			url = res.data.url;
  		}
+
  		return fn(url);
 	});
-
-}
+};

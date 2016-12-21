@@ -1,4 +1,3 @@
-
 var fs = require('fs');
 
 /**
@@ -6,7 +5,7 @@ var fs = require('fs');
  * @param target should reference to target.json
  */
 var getConfig = function(target){
-    return JSON.parse(fs.readFileSync( target, 'utf8'));
+    return JSON.parse(fs.readFileSync(target, 'utf8'));
 };
 
 module.exports = {
