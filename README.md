@@ -190,7 +190,7 @@ Create a new instance  of PackageTask.
  * @param file
 
 ### SendSSHTask
-**SendSSHTask(host, port,user,password,file,destination, extractDestination, sshKeyPass)**
+**SendSSHTask(host, port, user, password, file, destination, extractDestination, sshKeyPass)**
 
 Create a new instance  of SendSSHTask.
  * @param host
@@ -202,7 +202,7 @@ Create a new instance  of SendSSHTask.
  * @param extractDestination
  * @param sshKeyPass // the path to id_rsa (optionnal)
 
- ## Full Exemple
+#### Full Exemple
  ```javascript
 var deploy = require("happy-deploy");
 var fsx = require('fs-extra');
@@ -263,7 +263,7 @@ deploy.run();
 ```
 
 ### ExecSSHTask
-**ExecSSHTask(host, port,user,password, sshKeyPass, command)**
+**ExecSSHTask(host, port, user, password, sshKeyPass, command)**
 
 Execute a shell command via ssh
  * @param host
@@ -272,6 +272,18 @@ Execute a shell command via ssh
  * @param password
  * @param sshKeyPass
  * @param command
+
+### SendFTPTask
+**SendFTPTask(host, port, user, password, file, destination, extractDestination)**
+
+Create a new instance  of SendSSHTask.
+ * @param host
+ * @param port
+ * @param user
+ * @param password
+ * @param file
+ * @param destination
+ * @param extractDestination
 
 ## Slack
 

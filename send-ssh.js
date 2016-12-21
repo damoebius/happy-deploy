@@ -13,7 +13,7 @@ var Client = require('ssh2').Client;
  * @param sshKeyPass
  * @constructor
  */
-var SendSSHTask = function (host, port,user,password,file,destination, extractDestination, sshKeyPass) {
+var SendSSHTask = function (host, port, user, password, file, destination, extractDestination, sshKeyPass) {
     this.host = host;
     this.port = port;
     this.user = user;

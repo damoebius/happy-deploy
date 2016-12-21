@@ -1,7 +1,7 @@
 var ftpClient = require('ftp-client');
 var deploy = require("happy-deploy");
 
-var SendFTPTask = function (host, port,user,password,file,destination, extractDestination) {
+var SendFTPTask = function (host, port, user, password, file, destination, extractDestination) {
     this.host = host;
     this.port = port;
     this.user = user;
