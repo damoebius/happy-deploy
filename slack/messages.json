@@ -6,13 +6,11 @@
         "excited"
     ],
     "fail": [
-        "Build failed. @_author_@ :rage:",
-        "Build failed :( : shame on @_author_@ ",
-        "@_author_@ broke something in the build...",
-        "Hey @_author_@! Build failed.",
-        "Worst dev ever, @_author_@",
-        "Do not let @_author_@ code alone...",
-        "Something broke... As expected from @_author_@",
-        "My little sister code better than you, @_author_@"
+        "The build has failed. Could it be because of CodeSniffer, @_author_@?",
+        "The build has failed. Could it be because of connection problems, @_author_@?",
+        "The build has failed. Don't worry, @_author_@, it's probably just bad luck!",
+        "The build has failed. Hey don't be so sad, @_author_@, you'll do better next time.",
+        "The build has failed. Hey don't worry, @_author_@, just check what broke and try again.",
+        "The build has failed. I believe in you, @_author_@, you can fix this!"
     ]
 }
