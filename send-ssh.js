@@ -73,7 +73,7 @@ SendSSHTask.prototype.run = function(executeNextStep){
                         console.log("File transferred");
                         sftp.end();
 
-                        var command = 'tar -zxvf ' + that.destination + " -C " + that.extractDestination;
+                        var command = 'tar -zxf ' + that.destination + " -C " + that.extractDestination;
                         console.log("Extracting: " + command);
 
                         conn.exec(command, function(err, stream) {
