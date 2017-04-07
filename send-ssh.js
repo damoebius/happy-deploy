@@ -9,18 +9,16 @@ var Client = require('ssh2').Client;
  * @param password
  * @param file
  * @param destination
- * @param extractDestination
  * @param sshKeyPass
  * @constructor
  */
-var SendSSHTask = function (host, port, user, password, file, destination, extractDestination, sshKeyPass) {
+var SendSSHTask = function (host, port, user, password, file, destination, sshKeyPass) {
     this.host = host;
     this.port = port;
     this.user = user;
     this.password = password;
     this.file = file;
     this.destination = destination;
-    this.extractDestination = extractDestination;
     this.sshKeyPass = sshKeyPass;
     this.connectConfig = {
         host: this.host,
@@ -45,7 +43,7 @@ var SendSSHTask = function (host, port, user, password, file, destination, extra
  * @param executeNextStep the callback
  */
 SendSSHTask.prototype.run = function(executeNextStep){
-    console.log("sending over SSH");
+    console.log("Sending over SSH");
 
     var conn = new Client();
     var that = this;
@@ -71,28 +69,9 @@ SendSSHTask.prototype.run = function(executeNextStep){
                     'close',
                     function () {
                         console.log("File transferred");
+
                         sftp.end();
-
-                        var command = 'tar -zxf ' + that.destination + " -C " + that.extractDestination;
-                        console.log("Extracting: " + command);
-
-                        conn.exec(command, function(err, stream) {
-                            if (err) {
-                                throw err;
-                            }
-
-                            stream.on('data', function(data, stderr) {
-                                if (stderr) {
-                                    console.log('STDERR: ' + data);
-                                    executeNextStep();
-                                } else {
-                                    console.log(''+data);
-                                }
-                            }).on('exit', function(code, signal) {
-                                console.log('Exited with code ' + code);
-                                executeNextStep();
-                            });
-                        });
+                        executeNextStep();
                     }
                 );
 

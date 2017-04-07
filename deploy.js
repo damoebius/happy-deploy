@@ -43,7 +43,7 @@ module.exports = {
     run: run,
 
     /**
-     * The git Module
+     * The git module
      * @property git
      */
     git:require('./git'),
@@ -61,32 +61,46 @@ module.exports = {
     getConfig: require('./config').getConfig,
 
     /**
-     * The Compile Haxe Task Class
+     * The compile Haxe task class
      * @class CompileHaxeTask
      */
     CompileHaxeTask: require('./compile-haxe').CompileHaxeTask,
 
     /**
-     * The Compile Compass Task Class
+     * The compile compass task class
      * @class CompassTask
      */
     CompassTask: require('./compass').CompassTask,
 
     /**
-     * The Package Task Class
+     * The package task class
      * @class PackageTask
      */
     PackageTask: require('./package').PackageTask,
 
     /**
-     * The Send over SSH and Extract Task Class
+     * The send over SSH task class
      * @class SendSSHTask
      */
     SendSSHTask: require('./send-ssh').SendSSHTask,
 
+    /**
+     * The send over FTP task class
+     * @class SendFTPTask
+     */
     SendFTPTask: require('./send-ftp').SendFTPTask,
 
+    /**
+     * The exec SSH task class
+     * @class ExecSSHTask
+     */
     ExecSSHTask: require('./exec-ssh').ExecSSHTask,
+
+    /**
+     * The extract over SSH and extract task class
+     * @class ExtractSSHTask
+     */
+    ExtractSSHTask: require('./extract-ssh').ExtractSSHTask,
 
     addTask: addTask
 };
