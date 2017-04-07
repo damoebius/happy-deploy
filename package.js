@@ -23,7 +23,9 @@ var PackageTask = function (dir,file) {
 PackageTask.prototype.run = function(executeNextStep){
     console.log("Packaging");
 
-    targz().compress(this.dir, this.file, function(err){
+    targz({}, {
+        fromBase: true // Do not include top level folder
+    }).compress(this.dir, this.file, function(err){
         if(err) {
             console.log('Something is wrong');
             console.log(err.stack);
