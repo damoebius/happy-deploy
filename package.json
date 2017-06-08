@@ -33,7 +33,7 @@
     "ssh2": ">=0.0.1",
     "synchro-prompt": "^1.1.0",
     "tar.gz": ">=0.0.1",
-    "uglify-js": ">=0.0.1"
+    "uglify-js": "2.7.5"
   },
   "bin": {
     "slacksuccess": "slack/command/success.js",
